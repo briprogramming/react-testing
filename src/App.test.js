@@ -61,6 +61,21 @@ test('theme button should toggle styles', () => {
    expect(hiddenButton).toBeInTheDocument();
                 });
 
+it('should check for the presence of a specific element, like the paragraph containing the text Click the button to toggle the theme', ()=> {
+  render(<App />);
+  const element = screen.getByText(/Click the button to toggle the theme/i);
+
+  expect(element).toBeInTheDocument();
+});
+
+
+it('should check for the class name .container on the surrounding div', () => {
+  const { container } = render(<App />);
+  
+
+  expect(container.firstChild).toHaveClass('container');
+
+});
 
 // /**
 //  * Want more? Try these:
